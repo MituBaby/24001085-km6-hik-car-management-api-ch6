@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 
-const StudentCard = ({ car }) => {
+const CarCard = ({ car }) => {
     return (
         <Col key={car.id} md={3}>
             <Card className="mt-3" style={{ margin: "0.1rem"}}>
@@ -20,8 +20,8 @@ const StudentCard = ({ car }) => {
     );
 };
 
-StudentCard.propTypes = {
+CarCard.propTypes = {
     student: PropTypes.object,
 };
 
-export default StudentCard;
+export default CarCard;

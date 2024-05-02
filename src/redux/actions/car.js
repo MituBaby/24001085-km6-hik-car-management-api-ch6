@@ -1,8 +1,8 @@
 import axios from "axios";
 import { toast } from "react-toastify";
-import { setStudents, setStudent } from "../reducers/student";
+import { setCars, setCar } from "../reducers/car";
 
-export const getStudents = () => async (dispatch, getState) => {
+export const getCars = () => async (dispatch, getState) => {
     const { token } = getState().auth;
 
     let config = {
@@ -18,13 +18,13 @@ export const getStudents = () => async (dispatch, getState) => {
         const response = await axios.request(config);
         const { data } = response.data;
 
-        dispatch(setStudents(data));
+        dispatch(setCars(data));
     } catch (error) {
         toast.error(error?.response?.data?.message);
     }
 };
 
-export const getStudent = (navigate, id) => async (dispatch, getState) => {
+export const getCar = (navigate, id) => async (dispatch, getState) => {
     const { token } = getState().auth;
 
     let config = {
@@ -40,7 +40,7 @@ export const getStudent = (navigate, id) => async (dispatch, getState) => {
         const response = await axios.request(config);
         const { data } = response.data;
 
-        dispatch(setStudent(data));
+        dispatch(setCar(data));
     } catch (error) {
         toast.error(error?.response?.data?.message);
         navigate("/");

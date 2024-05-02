@@ -1,23 +1,23 @@
 import { useEffect } from "react";
 import { Row } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { getStudents } from "../../redux/actions/student";
-import StudentCard from "../../components/StudentCard";
+import { getCars } from "../../redux/actions/car";
+import CarCard from "../../components/CarCard";
 
 const Home = () => {
     const dispatch = useDispatch();
 
-    const { students } = useSelector((state) => state.student);
+    const { cars } = useSelector((state) => state.car); //pin error
 
     useEffect(() => {
-        dispatch(getStudents());
+        dispatch(getCars());
     }, [dispatch]);
 
     return (
         <Row>
-            {students.length > 0 &&
-                students.map((car) => (
-                    <StudentCard key={car?.id} car={car} />
+            {cars.length > 0 &&
+                cars.map((car) => (
+                    <CarCard key={car?.id} car={car} />
                 ))}
         </Row>
     );

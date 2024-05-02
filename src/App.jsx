@@ -13,7 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Profile from "./pages/profile";
 import Protected from "./components/Protected";
 import NonProtected from "./components/NonProtected";
-import StudentDetail from "./pages/student/details";
+import StudentDetail from "./pages/car/details";
 
 import store from "./redux/store";
 
