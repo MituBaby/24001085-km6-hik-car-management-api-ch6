@@ -13,7 +13,11 @@ import "react-toastify/dist/ReactToastify.css";
 import Profile from "./pages/profile";
 import Protected from "./components/Protected";
 import NonProtected from "./components/NonProtected";
-import StudentDetail from "./pages/car/details";
+import CarDetail from "./pages/car/details";
+import CreateCars from "./pages/createCars";
+import ChoiceCarUpdate from "./pages/choiceCars";
+import UpdateCars from "./pages/updateCars";
+import DeleteCars from "./components/deleteCars";
 
 import store from "./redux/store";
 
@@ -54,7 +58,7 @@ const router = createBrowserRouter([
     {
         path: "/profile",
         element: (
-            <Protected>
+            <Protected roles={["admin"]}>
                 <Navbar />
                 <Container className="mt-5">
                     <Profile />
@@ -68,7 +72,51 @@ const router = createBrowserRouter([
             <Protected>
                 <Navbar />
                 <Container className="mt-5">
-                    <StudentDetail />
+                    <CarDetail />
+                </Container>
+            </Protected>
+        ),
+    },
+    {
+        path: "/create-cars",
+        element: (
+            <Protected roles={["admin"]}>
+                <Navbar />
+                <Container className="mt-5">
+                    <CreateCars />
+                </Container>
+            </Protected>
+        ),
+    },
+    {
+        path: "/choice-cars",
+        element: (
+            <Protected roles={["admin"]}>
+                <Navbar />
+                <Container className="mt-5">
+                    <ChoiceCarUpdate />
+                </Container>
+            </Protected>
+        ),
+    },
+    {
+        path: "/update-cars/:id",
+        element: (
+            <Protected roles={["admin"]}>
+                <Navbar />
+                <Container className="mt-5">
+                    <UpdateCars />
+                </Container>
+            </Protected>
+        ),
+    },
+    {
+        path: "/delete-cars/:id",
+        element: (
+            <Protected roles={["admin"]}>
+                <Navbar />
+                <Container className="mt-5">
+                    <DeleteCars />
                 </Container>
             </Protected>
         ),

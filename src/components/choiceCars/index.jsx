@@ -13,7 +13,8 @@ const CarCard = ({ car }) => {
                 <Card.Text>
                 Rent per day : {car.rentPerDay.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' })}
                 </Card.Text>
-                <Button variant="primary" as={Link} to={`/cars/${car?.id}`}>See More</Button>
+                <Button variant="primary" as={Link} to={`/update-cars/${car?.id}`}>Edit</Button>
+                <Button variant="primary" as={Link} to={`/delete-cars/${car?.id}`} className="ms-4">Delete</Button>
             </Card.Body>
             </Card>
         </Col>
