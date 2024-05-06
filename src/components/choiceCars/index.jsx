@@ -7,7 +7,7 @@ const CarCard = ({ car }) => {
     return (
         <Col key={car.id} md={3}>
             <Card className="mt-3" style={{ margin: "0.1rem"}}>
-            <Card.Img variant="top" src={car.photoCars.map(photos => (photos.photo))}/>
+            <Card.Img variant="top" src={car?.photo}/>
             <Card.Body>
                 <Card.Title>{car.name}</Card.Title>
                 <Card.Text>

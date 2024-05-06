@@ -21,6 +21,7 @@ function updateCar() {
     const [type, setType] = useState("");
     const [transmission, setTransmission] = useState("");
     const [description, setDescription] = useState("");
+    const [photo, setPhoto] = useState();
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
@@ -31,7 +32,7 @@ function updateCar() {
         e.preventDefault();
 
         dispatch(
-            updateCars(navigate, name, rentPerday, manufacture, type, transmission, description, setIsLoading, id)
+            updateCars(navigate, name, rentPerday, manufacture, type, transmission, description, photo, setIsLoading, id)
         );
     };
 
@@ -100,6 +101,15 @@ function updateCar() {
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                     required
+                />
+            </Form.Group>
+
+            <Form.Group controlId="photo" className="mb-3">
+                <Form.Label>Photo cars</Form.Label>
+                <Form.Control
+                    type="file"
+                    onChange={(e) => setPhoto(e.target.files[0])}
+                    accept="image/*"
                 />
             </Form.Group>
 

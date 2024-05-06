@@ -30,9 +30,9 @@ const Profile = () => {
                                 </>
                             ) : (
                                 <>
-                                    {car?.photoCars?.map(photos => (photos.photo)) && (
+                                    {car?.photo && (
                                         <Image
-                                            src={car?.photoCars.map(photos => (photos.photo))}
+                                            src={car?.photo}
                                             className="img-fluid"
                                             rounded
                                         />

@@ -16,14 +16,17 @@ function createCar() {
     const [type, setType] = useState("");
     const [transmission, setTransmission] = useState("");
     const [description, setDescription] = useState("");
+    const [photo, setPhoto] = useState();
     const [isLoading, setIsLoading] = useState(false);
 
     const onSubmit = async (e) => {
         e.preventDefault();
 
         dispatch(
-            createCars(navigate, name, rentPerday, manufacture, type, transmission, description, setIsLoading)
+            createCars(navigate, name, rentPerday, manufacture, type, transmission, description, photo, setIsLoading)
         );
+
+        // dispatch(createPhotoCar(navigate, photo, id))
     };
 
     return (
@@ -91,6 +94,15 @@ function createCar() {
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                     required
+                />
+            </Form.Group>
+
+            <Form.Group controlId="photo" className="mb-3">
+                <Form.Label>Photo cars</Form.Label>
+                <Form.Control
+                    type="file"
+                    onChange={(e) => setPhoto(e.target.files[0])}
+                    accept="image/*"
                 />
             </Form.Group>
 
